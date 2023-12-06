@@ -8,12 +8,14 @@
         body {
             margin: 0;
             padding: 0;
-            overflow: auto;
+            overflow: hidden; /* Hide default scrollbar */
         }
 
         .container {
             display: flex;
             flex-direction: column;
+            overflow-y: auto; /* Enable scrolling for the container */
+            height: 100vh; /* Set container height to full viewport height */
         }
 
         img {
