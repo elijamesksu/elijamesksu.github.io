@@ -9,12 +9,11 @@
             margin: 0;
             padding: 0;
             overflow: auto;
-            min-height: 100vh;
         }
 
-        figure {
-            margin: 0;
-            overflow-x: auto;
+        .container {
+            display: flex;
+            flex-direction: column;
         }
 
         img {
@@ -22,7 +21,6 @@
             height: auto;
             display: block;
             margin: 0 auto;
-            max-height: 100vh; /* Limit the image height to the viewport height */
         }
 
         iframe {
@@ -34,14 +32,15 @@
 </head>
 <body>
 
-    <!-- Scrollable Image -->
-    <figure>
-        <img src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
-        <figcaption></figcaption>
-    </figure>
+    <div class="container">
 
-    <!-- Google Form survey iframe -->
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
+        <!-- Scrollable Image -->
+        <img src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
+
+        <!-- Google Form survey iframe -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
+
+    </div>
 
 </body>
 </html>
