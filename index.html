@@ -27,6 +27,7 @@
             width: 100vw;
             height: 100vh;
             border: 0;
+            visibility: hidden; /* Hide the survey initially */
         }
     </style>
 </head>
@@ -35,12 +36,20 @@
     <div class="container">
 
         <!-- Scrollable Image -->
-        <img src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
+        <img id="landingPageImage" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
 
         <!-- Google Form survey iframe -->
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
+        <iframe id="surveyIframe" src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
 
     </div>
+
+    <script>
+        // Wait for the image to be fully loaded
+        document.getElementById('landingPageImage').addEventListener('load', function() {
+            // Make the survey iframe visible
+            document.getElementById('surveyIframe').style.visibility = 'visible';
+        });
+    </script>
 
 </body>
 </html>
