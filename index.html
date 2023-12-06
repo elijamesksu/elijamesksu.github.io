@@ -16,22 +16,11 @@
             flex-direction: column;
         }
 
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding: 20px;
-        }
-
-        .gallery img {
-            max-width: 100%;
+        img {
+            width: 100%;
             height: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.1);
+            display: block;
+            margin: 0 auto;
         }
 
         iframe {
@@ -45,29 +34,13 @@
 
     <div class="container">
 
-        <!-- Clickable Folder for Gallery -->
-        <div class="folder" onclick="openGallery()">
-            <img src="folder-icon.png" alt="Gallery Folder">
-            <span>Click to open gallery</span>
-        </div>
-
-        <!-- Photo Gallery (Initially Hidden) -->
-        <div class="gallery" id="photoGallery" style="display: none;">
-            <img src="https://drive.google.com/uc?id=1zPnFTthsWDWLn1NpYI5IJEn7LGc2-Jsk" alt="Gallery Image 1">
-            <img src="https://drive.google.com/uc?id=1csoebT8-OOTEMQ03CEhgHnV4E3bz0FI4" alt="Gallery Image 2">
-            <!-- Add more images as needed -->
-        </div>
+        <!-- Scrollable Image -->
+        <img src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
 
         <!-- Google Form survey iframe -->
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
 
     </div>
-
-    <script>
-        function openGallery() {
-            document.getElementById('photoGallery').style.display = 'flex';
-        }
-    </script>
 
 </body>
 </html>
