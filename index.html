@@ -1,3 +1,6 @@
+Great! If you have an SVG file and you want to embed it in your HTML code, you can use the `<img>` tag or inline the SVG code directly in your HTML. Here's an example using the `<img>` tag:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,14 +19,16 @@
             overflow-x: auto;
         }
 
-        img {
+        img,
+        svg {
             width: 100%;
             height: auto;
             display: block;
             margin: 0 auto;
         }
 
-        iframe {
+        iframe,
+        object {
             width: 100vw;
             height: 100vh;
             border: 0;
@@ -31,6 +36,12 @@
     </style>
 </head>
 <body>
+
+    <!-- SVG Image -->
+    <figure>
+        <img src="file:///C:/Users/s4ab3/Downloads/Landing%20Page.svg" alt="SVG Image">
+        <figcaption>SVG Image</figcaption>
+    </figure>
 
     <!-- Scrollable Image -->
     <figure>
@@ -41,5 +52,13 @@
     <!-- Google Form survey iframe -->
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
 
+    <!-- PDF Embed -->
+    <object data="file:///C:/Users/s4ab3/Downloads/Landing%20Page.pdf" type="application/pdf">
+        <p>PDF cannot be displayed. <a href="file:///C:/Users/s4ab3/Downloads/Landing%20Page.pdf">Download PDF</a> instead.</p>
+    </object>
+
 </body>
 </html>
+```
+
+This example assumes that your SVG file is suitable for direct embedding in an HTML document. If the SVG file contains complex graphics or interactive elements, you might need to adjust the HTML and CSS accordingly. Feel free to replace the SVG image source with the correct path to your file.
