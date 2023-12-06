@@ -8,115 +8,78 @@
         body {
             margin: 0;
             padding: 0;
-            overflow: auto;
-            min-height: 100vh;
+            overflow: hidden;
         }
 
-        figure {
-            margin: 0;
-            overflow-x: auto;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            max-height: 100vh; /* Limit the image height to the viewport height */
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
         }
 
         .gallery {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
             align-items: center;
-            gap: 10px;
-            padding: 20px;
-        }
-
-        .gallery img {
-            max-width: 100%;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.1);
-        }
-
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-            z-index: 2;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        .close {
-            color: white;
+            justify-content: space-between;
             position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 30px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: 0 auto;
             cursor: pointer;
+        }
+
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: 0;
         }
     </style>
 </head>
 <body>
 
-    <!-- Scrollable Image -->
-    <figure>
-        <img src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
-        <figcaption>Landing Page</figcaption>
-    </figure>
+    <div class="container">
 
-    <!-- Photo Gallery -->
-    <div class="gallery">
-        <img src="https://drive.google.com/uc?id=1zPnFTthsWDWLn1NpYI5IJEn7LGc2-Jsk" alt="Gallery Image 1" onclick="openLightbox('https://drive.google.com/uc?id=1zPnFTthsWDWLn1NpYI5IJEn7LGc2-Jsk')">
-        <img src="https://drive.google.com/uc?id=1csoebT8-OOTEMQ03CEhgHnV4E3bz0FI4" alt="Gallery Image 2" onclick="openLightbox('https://drive.google.com/uc?id=1csoebT8-OOTEMQ03CEhgHnV4E3bz0FI4')">
-        <img src="https://drive.google.com/uc?id=11NBqoQt5WjExMfUoLLp5b8mLFrZn8LXg" alt="Gallery Image 3" onclick="openLightbox('https://drive.google.com/uc?id=11NBqoQt5WjExMfUoLLp5b8mLFrZn8LXg')">
-        <img src="https://drive.google.com/uc?id=1FjdSqgaAB4GA4uUPl1cZURuIOagjL3OP" alt="Gallery Image 4" onclick="openLightbox('https://drive.google.com/uc?id=1FjdSqgaAB4GA4uUPl1cZURuIOagjL3OP')">
-        <img src="https://drive.google.com/uc?id=1nKlcgmHPWzpSWxk9KLf23yp8-FXeQYby" alt="Gallery Image 5" onclick="openLightbox('https://drive.google.com/uc?id=1nKlcgmHPWzpSWxk9KLf23yp8-FXeQYby')">
-        <img src="https://drive.google.com/uc?id=16uKaSfTLKW7i8kK4jWOLHe10magF-PNZ" alt="Gallery Image 6" onclick="openLightbox('https://drive.google.com/uc?id=16uKaSfTLKW7i8kK4jWOLHe10magF-PNZ')">
-        <img src="https://drive.google.com/uc?id=1gRBwN2ZXYLTp91UFEX_VHH7yVjeVy0xE" alt="Gallery Image 7" onclick="openLightbox('https://drive.google.com/uc?id=1gRBwN2ZXYLTp91UFEX_VHH7yVjeVy0xE')">
-        <img src="https://drive.google.com/uc?id=1Bmo63c0xRzjWW-C0iF62Fjby6a-SLFPw" alt="Gallery Image 8" onclick="openLightbox('https://drive.google.com/uc?id=1Bmo63c0xRzjWW-C0iF62Fjby6a-SLFPw')">
-        <img src="https://drive.google.com/uc?id=1qg5j8PInRGbtEfehvxt1oM8ak15PO2k-" alt="Gallery Image 9" onclick="openLightbox('https://drive.google.com/uc?id=1qg5j8PInRGbtEfehvxt1oM8ak15PO2k-')">
-        <img src="https://drive.google.com/uc?id=1cO8H4UHEDkfrJbf3-azQjemCbd-Z-zVg" alt="Gallery Image 10" onclick="openLightbox('https://drive.google.com/uc?id=1cO8H4UHEDkfrJbf3-azQjemCbd-Z-zVg')">
-        <img src="https://drive.google.com/uc?id=1kH_MyA22hleGJmpwlMt9jicYV-3UpB89" alt="Gallery Image 11" onclick="openLightbox('https://drive.google.com/uc?id=1kH_MyA22hleGJmpwlMt9jicYV-3UpB89')">
-        <img src="https://drive.google.com/uc?id=1V0I-lfubVloSpv1y3R70CPM1BiNYOxI4" alt="Gallery Image 12" onclick="openLightbox('https://drive.google.com/uc?id=1V0I-lfubVloSpv1y3R70CPM1BiNYOxI4')">
-        <img src="https://drive.google.com/uc?id=1D1xfb9DikeKIiSxR6Xod7Yf39uWtMdKS" alt="Gallery Image 13" onclick="openLightbox('https://drive.google.com/uc?id=1D1xfb9DikeKIiSxR6Xod7Yf39uWtMdKS')">
-        <img src="https://drive.google.com/uc?id=1_VIeuMPqHOi0nxN4jLfnHOnm8B-9cdtv" alt="Gallery Image 14" onclick="openLightbox('https://drive.google.com/uc?id=1_VIeuMPqHOi0nxN4jLfnHOnm8B-9cdtv')">
-        <img src="https://drive.google.com/uc?id=1TNbSWnJNooVN8j_AKW_R49AokVjkHJAN" alt="Gallery Image 15" onclick="openLightbox('https://drive.google.com/uc?id=1TNbSWnJNooVN8j_AKW_R49AokVjkHJAN')">
-    </div>
+        <!-- Click-through Gallery -->
+        <div class="gallery">
+            <img src="https://drive.google.com/uc?id=1zPnFTthsWDWLn1NpYI5IJEn7LGc2-Jsk" alt="Gallery Image 1" onclick="navigateGallery(1)">
+            <img src="https://drive.google.com/uc?id=1csoebT8-OOTEMQ03CEhgHnV4E3bz0FI4" alt="Gallery Image 2" onclick="navigateGallery(2)">
+            <!-- Add more images as needed -->
+        </div>
 
-    <!-- Google Form survey iframe -->
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
+        <!-- Google Form survey iframe -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
 
-    <!-- Lightbox Modal -->
-    <div id="lightboxModal" class="lightbox">
-        <span class="close" onclick="closeLightbox">&times;</span>
-        <img id="lightboxImg" src="" alt="Lightbox Image">
     </div>
 
     <script>
-        function openLightbox(imgSrc) {
-            document.getElementById('lightboxModal').style.display = 'flex';
-            document.getElementById('lightboxImg').src = imgSrc;
+        let currentImageIndex = 0;
+        const galleryImages = [
+            "https://drive.google.com/uc?id=1zPnFTthsWDWLn1NpYI5IJEn7LGc2-Jsk",
+            "https://drive.google.com/uc?id=1csoebT8-OOTEMQ03CEhgHnV4E3bz0FI4",
+            // Add more image URLs as needed
+        ];
+
+        function navigateGallery(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            } else if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            }
+            updateGallery();
         }
 
-        function closeLightbox() {
-            document.getElementById('lightboxModal').style.display = 'none';
+        function updateGallery() {
+            const imageElement = document.querySelector('.gallery img');
+            imageElement.src = galleryImages[currentImageIndex];
         }
     </script>
 
