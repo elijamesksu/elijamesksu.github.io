@@ -9,18 +9,19 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
+            min-height: 150vh; /* Set a minimum height for the body */
         }
 
         .container {
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            height: 150vh; /* Set a fixed height for the container */
             overflow-y: auto;
         }
 
         .content {
-            flex: 1; /* Make the content div take remaining height */
-            overflow-y: auto; /* Enable scrolling for the content */
+            flex: 1;
+            overflow-y: auto;
         }
 
         img {
@@ -42,17 +43,25 @@
     <div class="container">
 
         <!-- Scrollable Image with Lazy Loading -->
-        <img loading="lazy" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
+        <img id="landingPageImage" loading="lazy" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
 
         <!-- Content div for seamless scrolling -->
-        <div class="content">
-
-            <!-- Google Form survey iframe with async attribute -->
-            <iframe async loading="lazy" src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
-
-        </div>
+        <div class="content" id="surveyContainer"></div>
 
     </div>
+
+    <script>
+        // Wait for the image to be fully loaded
+        document.getElementById('landingPageImage').addEventListener('load', function() {
+            // Create the survey iframe dynamically
+            var surveyIframe = document.createElement('iframe');
+            surveyIframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true';
+            surveyIframe.loading = 'lazy';
+
+            // Append the survey iframe to the content div
+            document.getElementById('surveyContainer').appendChild(surveyIframe);
+        });
+    </script>
 
 </body>
 </html>
