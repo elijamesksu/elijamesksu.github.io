@@ -9,12 +9,11 @@
             margin: 0;
             padding: 0;
             overflow: auto;
-            min-height: 100vh;
         }
 
-        figure {
-            margin: 0;
-            overflow-x: auto;
+        .container {
+            display: flex;
+            flex-direction: column;
         }
 
         img {
@@ -22,27 +21,6 @@
             height: auto;
             display: block;
             margin: 0 auto;
-            max-height: 100vh; /* Limit the image height to the viewport height */
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            padding: 20px;
-        }
-
-        .gallery img {
-            max-width: 100%;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.1);
         }
 
         iframe {
@@ -54,20 +32,15 @@
 </head>
 <body>
 
-    <!-- Scrollable Image -->
-    <figure>
+    <div class="container">
+
+        <!-- Scrollable Image -->
         <img src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
-        <figcaption>Landing Page</figcaption>
-    </figure>
 
-    <!-- Photo Gallery -->
-    <div class="gallery">
-        <img src="https://drive.google.com/uc?id=1N2P8TGQUkgqsnEPvFwEwYkXs60n4Pb2E" alt="Gallery Image 1">
-        <!-- Add more gallery images as needed -->
+        <!-- Google Form survey iframe -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
+
     </div>
-
-    <!-- Google Form survey iframe -->
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
 
 </body>
 </html>
