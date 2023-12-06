@@ -1,22 +1,46 @@
-simple HTML file.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rapid Resale Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        figure {
+            margin: 0;
+            overflow-x: auto;
+        }
+
+        img {
+            width: 100%;
+            max-width: 100vw;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: 0;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Embedding the Uizard image -->
-    <img src="file:///C:/Users/s4ab3/Downloads/Landing%20Page.png" alt="Uizard Project" style="max-width: 100%; height: auto;">
+    <!-- Scrollable Image -->
+    <figure>
+        <img src="file:///C:/Users/s4ab3/Downloads/Landing%20Page.png" alt="Uizard Project">
+        <figcaption>Uizard Project</figcaption>
+    </figure>
 
-    <br>
-
-    <!-- Adding the Google Form survey iframe -->
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true" width="640" height="2155" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <!-- Google Form survey iframe -->
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
 
 </body>
 </html>
