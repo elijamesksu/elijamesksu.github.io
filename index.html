@@ -14,7 +14,7 @@
         .container {
             position: relative;
             width: 100%;
-            height: 100%; /* Adjust the height of the container as needed */
+            height: auto;
         }
 
         img {
@@ -22,17 +22,21 @@
             height: auto;
             display: block;
             margin: 0 auto;
-            z-index: 1; /* Place the PNG behind the survey */
+        }
+
+        .survey-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            height: 800px; /* Adjust the height of the survey iframe as needed */
+            z-index: 2;
         }
 
         iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 800px; /* Adjust the height of the survey iframe as needed */
+            height: 100%;
             border: 0;
-            z-index: 2; /* Place the survey on top */
         }
     </style>
 </head>
@@ -43,11 +47,15 @@
         <!-- Scrollable Image -->
         <img src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
 
+    </div>
+
+    <!-- Survey Container -->
+    <div class="survey-container">
         <!-- Google Form survey iframe -->
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
-
     </div>
 
 </body>
 </html>
+
 
