@@ -8,14 +8,19 @@
         body {
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Remove scrollbar from body */
+            overflow: hidden;
         }
 
         .container {
             display: flex;
             flex-direction: column;
-            overflow-y: auto; /* Enable scrolling for the container */
-            height: 100vh; /* Set container height to full viewport height */
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .content {
+            flex: 1; /* Make the content div take remaining height */
+            overflow-y: auto; /* Enable scrolling for the content */
         }
 
         img {
@@ -39,8 +44,13 @@
         <!-- Scrollable Image with Lazy Loading -->
         <img loading="lazy" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
 
-        <!-- Google Form survey iframe with async attribute -->
-        <iframe async loading="lazy" src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
+        <!-- Content div for seamless scrolling -->
+        <div class="content">
+
+            <!-- Google Form survey iframe with async attribute -->
+            <iframe async loading="lazy" src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
+
+        </div>
 
     </div>
 
