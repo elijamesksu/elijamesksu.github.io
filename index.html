@@ -35,19 +35,27 @@
 
     <div class="container">
 
-        <!-- Scrollable Image -->
-        <img id="landingPageImage" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
+        <!-- Scrollable Image with Lazy Loading -->
+        <img id="landingPageImage" loading="lazy" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
 
-        <!-- Google Form survey iframe -->
-        <iframe id="surveyIframe" src="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true"></iframe>
+        <!-- Content div for seamless scrolling -->
+        <div class="content" id="surveyContainer"></div>
 
     </div>
 
     <script>
         // Wait for the image to be fully loaded
         document.getElementById('landingPageImage').addEventListener('load', function() {
+            // Create the survey iframe dynamically
+            var surveyIframe = document.createElement('iframe');
+            surveyIframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true';
+            surveyIframe.loading = 'lazy';
+
+            // Append the survey iframe to the content div
+            document.getElementById('surveyContainer').appendChild(surveyIframe);
+
             // Make the survey iframe visible
-            document.getElementById('surveyIframe').style.visibility = 'visible';
+            surveyIframe.style.visibility = 'visible';
         });
     </script>
 
