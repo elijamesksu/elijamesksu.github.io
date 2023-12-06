@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RapidResale Demo</title>
+    <link rel="preload" href="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" as="image" type="image/png">
+    <link rel="preload" href="https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true" as="iframe" type="text/html">
     <style>
         body {
             margin: 0;
             padding: 0;
             overflow: auto;
-            scroll-behavior: smooth; /* Add smooth scroll behavior */
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -28,7 +30,7 @@
             width: 100vw;
             height: 100vh;
             border: 0;
-            visibility: hidden; /* Hide the survey initially */
+            visibility: hidden;
         }
     </style>
 </head>
@@ -45,17 +47,11 @@
     </div>
 
     <script>
-        // Wait for the image to be fully loaded
         document.getElementById('landingPageImage').addEventListener('load', function() {
-            // Create the survey iframe dynamically
             var surveyIframe = document.createElement('iframe');
             surveyIframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true';
             surveyIframe.loading = 'lazy';
-
-            // Append the survey iframe to the content div
             document.getElementById('surveyContainer').appendChild(surveyIframe);
-
-            // Make the survey iframe visible
             surveyIframe.style.visibility = 'visible';
         });
     </script>
