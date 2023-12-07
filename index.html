@@ -15,25 +15,23 @@
         .container {
             display: flex;
             flex-direction: column;
-            position: relative;
-            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Set container height to 100% of the viewport height */
         }
 
-        .loading-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 32px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            color: royalblue;
-            animation: rotateR 2s infinite linear; /* Rotate animation */
+        .loading-spinner {
+            border: 4px solid #3498db;
+            border-radius: 50%;
+            border-top: 4px solid #ffffff;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
         }
 
-        @keyframes rotateR {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         img {
@@ -55,7 +53,7 @@
 <body>
 
     <div class="container">
-        <div class="loading-text" id="loadingText">R</div>
+        <div class="loading-spinner"></div>
 
         <!-- Scrollable Image with Lazy Loading -->
         <img id="landingPageImage" loading="lazy" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
@@ -66,36 +64,11 @@
     </div>
 
     <script>
-        // Check if the element is in the viewport
-        function isElementInViewport(el) {
-            var rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
-
-        // Show/hide the loading text based on whether the image is in the viewport
-        function toggleLoading() {
-            var loadingText = document.getElementById('loadingText');
-            var landingPageImage = document.getElementById('landingPageImage');
-
-            if (isElementInViewport(landingPageImage)) {
-                loadingText.style.display = 'none';
-                window.removeEventListener('scroll', toggleLoading);
-            } else {
-                loadingText.style.display = 'block';
-            }
-        }
-
-        // Check on page load and on scroll
-        window.addEventListener('load', toggleLoading);
-        window.addEventListener('scroll', toggleLoading);
-
         // Wait for the image to be fully loaded
         document.getElementById('landingPageImage').addEventListener('load', function() {
+            // Hide the loading spinner when the image is loaded
+            document.querySelector('.loading-spinner').style.display = 'none';
+
             // Create the survey iframe dynamically
             var surveyIframe = document.createElement('iframe');
             surveyIframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true';
