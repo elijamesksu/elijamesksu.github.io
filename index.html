@@ -29,7 +29,6 @@
             font-weight: bold;
             color: royalblue;
             animation: rotateR 2s infinite linear; /* Rotate animation */
-            z-index: 1; /* Ensure the loading text is behind the image */
         }
 
         @keyframes rotateR {
@@ -43,7 +42,6 @@
             display: block;
             margin: 0 auto;
             cursor: pointer; /* Add cursor pointer for clickable effect */
-            position: relative; /* Add position relative for z-index to work */
         }
 
         iframe {
@@ -68,36 +66,11 @@
     </div>
 
     <script>
-        // Check if the element is in the viewport
-        function isElementInViewport(el) {
-            var rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
-
-        // Show/hide the loading text based on whether the image is in the viewport
-        function toggleLoading() {
-            var loadingText = document.getElementById('loadingText');
-            var landingPageImage = document.getElementById('landingPageImage');
-
-            if (isElementInViewport(landingPageImage)) {
-                loadingText.style.display = 'none';
-                window.removeEventListener('scroll', toggleLoading);
-            } else {
-                loadingText.style.display = 'block';
-            }
-        }
-
-        // Check on page load and on scroll
-        window.addEventListener('load', toggleLoading);
-        window.addEventListener('scroll', toggleLoading);
-
         // Wait for the image to be fully loaded
         document.getElementById('landingPageImage').addEventListener('load', function() {
+            // Hide the loading text when the image is loaded
+            document.getElementById('loadingText').style.display = 'none';
+
             // Create the survey iframe dynamically
             var surveyIframe = document.createElement('iframe');
             surveyIframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true';
