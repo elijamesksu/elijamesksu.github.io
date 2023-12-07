@@ -29,6 +29,7 @@
             font-weight: bold;
             color: royalblue;
             animation: rotateR 2s infinite linear; /* Rotate animation */
+            z-index: 1; /* Ensure the loading text is behind the image */
         }
 
         @keyframes rotateR {
@@ -42,6 +43,7 @@
             display: block;
             margin: 0 auto;
             cursor: pointer; /* Add cursor pointer for clickable effect */
+            position: relative; /* Add position relative for z-index to work */
         }
 
         iframe {
