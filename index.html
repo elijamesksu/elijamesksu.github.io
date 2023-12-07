@@ -79,21 +79,21 @@
             );
         }
 
-        // Show the loading text if the image is still loading and in the viewport
-        function checkLoading() {
+        // Show/hide the loading text based on whether the image is in the viewport
+        function toggleLoading() {
             var loadingText = document.getElementById('loadingText');
             var landingPageImage = document.getElementById('landingPageImage');
 
-            if (isElementInViewport(landingPageImage) && !landingPageImage.complete) {
-                loadingText.style.display = 'block';
-            } else {
+            if (isElementInViewport(landingPageImage)) {
                 loadingText.style.display = 'none';
+            } else {
+                loadingText.style.display = 'block';
             }
         }
 
         // Check on page load and on scroll
-        window.addEventListener('load', checkLoading);
-        window.addEventListener('scroll', checkLoading);
+        window.addEventListener('load', toggleLoading);
+        window.addEventListener('scroll', toggleLoading);
 
         // Wait for the image to be fully loaded
         document.getElementById('landingPageImage').addEventListener('load', function() {
