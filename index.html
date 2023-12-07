@@ -15,6 +15,23 @@
         .container {
             display: flex;
             flex-direction: column;
+            position: relative;
+        }
+
+        .loading-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: royalblue;
+            animation: rotateR 2s infinite linear; /* Rotate animation */
+        }
+
+        @keyframes rotateR {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         img {
@@ -36,6 +53,7 @@
 <body>
 
     <div class="container">
+        <div class="loading-text">R</div>
 
         <!-- Scrollable Image with Lazy Loading -->
         <img id="landingPageImage" loading="lazy" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
@@ -48,6 +66,9 @@
     <script>
         // Wait for the image to be fully loaded
         document.getElementById('landingPageImage').addEventListener('load', function() {
+            // Hide the loading text when the image is loaded
+            document.querySelector('.loading-text').style.display = 'none';
+
             // Create the survey iframe dynamically
             var surveyIframe = document.createElement('iframe');
             surveyIframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true';
