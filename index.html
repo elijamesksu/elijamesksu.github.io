@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             overflow: auto;
-            scroll-behavior: smooth; /* Add smooth scroll behavior */
+            scroll-behavior: smooth; 
         }
 
         .container {
@@ -22,6 +22,7 @@
             height: auto;
             display: block;
             margin: 0 auto;
+            cursor: pointer; /* Add cursor pointer for clickable effect */
         }
 
         iframe {
@@ -57,6 +58,11 @@
 
             // Make the survey iframe visible
             surveyIframe.style.visibility = 'visible';
+        });
+
+        // Add event listener to redirect to the survey when the image is clicked
+        document.getElementById('landingPageImage').addEventListener('click', function() {
+            window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform';
         });
     </script>
 
