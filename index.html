@@ -28,8 +28,7 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
             color: royalblue;
-            animation: rotateR 2s infinite linear; /* Rotate animation */
-            z-index: 1; /* Ensure the loading text is behind the image */
+            display: none; /* Initially hide the loading text */
         }
 
         @keyframes rotateR {
@@ -45,13 +44,14 @@
             margin: 0 auto;
             cursor: pointer; /* Add cursor pointer for clickable effect */
             position: relative; /* Add position relative for z-index to work */
+            visibility: hidden; /* Initially hide the image */
         }
 
         iframe {
             width: 100vw;
             height: 100vh;
             border: 0;
-            visibility: hidden; /* Hide the survey initially */
+            visibility: hidden; /* Initially hide the iframe */
         }
     </style>
 </head>
@@ -61,7 +61,7 @@
         <div class="loading-text" id="loadingText">R</div>
 
         <!-- Scrollable Image with Lazy Loading -->
-        <img id="landingPageImage" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
+        <img id="landingPageImage" loading="lazy" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
 
         <!-- Content div for seamless scrolling -->
         <div class="content" id="surveyContainer"></div>
@@ -69,46 +69,14 @@
     </div>
 
     <script>
-        // Check if the element is in the viewport
-        function isElementInViewport(el) {
-            var rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
+        // Wait for the window and all content to be fully loaded
+        window.addEventListener('load', function() {
+            // Hide the loading text
+            document.getElementById('loadingText').style.display = 'none';
 
-        // Show/hide the loading text based on whether the image is in the viewport
-        function toggleLoading() {
-            var loadingText = document.getElementById('loadingText');
-            var landingPageImage = document.getElementById('landingPageImage');
-
-            if (isElementInViewport(landingPageImage)) {
-                loadingText.style.display = 'none';
-                window.removeEventListener('scroll', toggleLoading);
-            } else {
-                loadingText.style.display = 'block';
-            }
-        }
-
-        // Check on page load and on scroll
-        window.addEventListener('load', toggleLoading);
-        window.addEventListener('scroll', toggleLoading);
-
-        // Wait for the image to be fully loaded
-        document.getElementById('landingPageImage').addEventListener('load', function() {
-            // Create the survey iframe dynamically
-            var surveyIframe = document.createElement('iframe');
-            surveyIframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true';
-            surveyIframe.loading = 'lazy';
-
-            // Append the survey iframe to the content div
-            document.getElementById('surveyContainer').appendChild(surveyIframe);
-
-            // Make the survey iframe visible
-            surveyIframe.style.visibility = 'visible';
+            // Make the image and iframe visible
+            document.getElementById('landingPageImage').style.visibility = 'visible';
+            document.querySelector('iframe').style.visibility = 'visible';
         });
 
         // Add event listener to redirect to the survey when the image is clicked
