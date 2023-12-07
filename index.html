@@ -72,10 +72,8 @@
         function isElementInViewport(el) {
             var rect = el.getBoundingClientRect();
             return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                rect.top >= -2 * window.innerHeight && // 2 inches above the viewport
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
             );
         }
 
@@ -86,6 +84,7 @@
 
             if (isElementInViewport(landingPageImage)) {
                 loadingText.style.display = 'none';
+                window.removeEventListener('scroll', toggleLoading);
             } else {
                 loadingText.style.display = 'block';
             }
