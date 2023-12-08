@@ -23,13 +23,13 @@
             display: block;
             margin: 0 auto;
             cursor: pointer; /* Add cursor pointer for clickable effect */
+            visibility: hidden; /* Hide the image initially */
         }
 
         iframe {
             width: 100vw;
             height: 100vh;
             border: 0;
-            visibility: hidden; /* Hide the survey initially */
         }
     </style>
 </head>
@@ -37,34 +37,46 @@
 
     <div class="container">
 
-        <!-- Scrollable Image with Lazy Loading -->
-        <img id="landingPageImage" loading="lazy" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
-
         <!-- Content div for seamless scrolling -->
         <div class="content" id="surveyContainer"></div>
+
+        <!-- Scrollable Image with Lazy Loading -->
+        <img id="landingPageImage" loading="lazy" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
 
     </div>
 
     <script>
-        // Wait for the image to be fully loaded
-        document.getElementById('landingPageImage').addEventListener('load', function() {
-            // Create the survey iframe dynamically
-            var surveyIframe = document.createElement('iframe');
-            surveyIframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true';
-            surveyIframe.loading = 'lazy';
+        // Create the survey iframe dynamically
+        var surveyIframe = document.createElement('iframe');
+        surveyIframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true';
+        surveyIframe.loading = 'lazy';
 
-            // Append the survey iframe to the content div
-            document.getElementById('surveyContainer').appendChild(surveyIframe);
+        // Append the survey iframe to the content div
+        document.getElementById('surveyContainer').appendChild(surveyIframe);
 
+        // Wait for the survey iframe to be fully loaded
+        surveyIframe.addEventListener('load', function() {
             // Make the survey iframe visible
             surveyIframe.style.visibility = 'visible';
+
+            // Create the image dynamically
+            var landingPageImage = document.createElement('img');
+            landingPageImage.id = 'landingPageImage';
+            landingPageImage.loading = 'lazy';
+            landingPageImage.src = 'https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK';
+            landingPageImage.alt = 'Landing Page';
+
+            // Append the image to the container
+            document.querySelector('.container').appendChild(landingPageImage);
         });
 
         // Add event listener to redirect to the survey when the image is clicked
-        document.getElementById('landingPageImage').addEventListener('click', function() {
-            window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform';
+        document.addEventListener('click', function(event) {
+            if (event.target.id === 'landingPageImage') {
+                window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform';
+            }
         });
     </script>
 
 </body>
-</html> 
+</html>
