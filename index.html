@@ -46,16 +46,16 @@
     </div>
 
     <script>
-        // Create the survey iframe dynamically
-        var surveyIframe = document.createElement('iframe');
-        surveyIframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true';
-        surveyIframe.loading = 'lazy';
+        // Wait for the image to be fully loaded
+        document.getElementById('landingPageImage').addEventListener('load', function() {
+            // Create the survey iframe dynamically
+            var surveyIframe = document.createElement('iframe');
+            surveyIframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform?embedded=true';
+            surveyIframe.loading = 'lazy';
 
-        // Append the survey iframe to the content div
-        document.getElementById('surveyContainer').appendChild(surveyIframe);
+            // Append the survey iframe to the content div
+            document.getElementById('surveyContainer').appendChild(surveyIframe);
 
-        // Wait for the survey iframe to be fully loaded
-        surveyIframe.addEventListener('load', function() {
             // Make the survey iframe visible
             surveyIframe.style.visibility = 'visible';
         });
@@ -68,3 +68,7 @@
 
 </body>
 </html>
+
+
+
+
