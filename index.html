@@ -1,3 +1,6 @@
+Certainly! To switch the order of the image and the survey, you can modify the HTML and script as follows:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,13 +26,13 @@
             display: block;
             margin: 0 auto;
             cursor: pointer; /* Add cursor pointer for clickable effect */
-            visibility: hidden; /* Hide the image initially */
         }
 
         iframe {
             width: 100vw;
             height: 100vh;
             border: 0;
+            visibility: hidden; /* Hide the survey initially */
         }
     </style>
 </head>
@@ -37,11 +40,11 @@
 
     <div class="container">
 
-        <!-- Content div for seamless scrolling -->
-        <div class="content" id="surveyContainer"></div>
-
         <!-- Scrollable Image with Lazy Loading -->
         <img id="landingPageImage" loading="lazy" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
+
+        <!-- Content div for seamless scrolling -->
+        <div class="content" id="surveyContainer"></div>
 
     </div>
 
@@ -58,25 +61,16 @@
         surveyIframe.addEventListener('load', function() {
             // Make the survey iframe visible
             surveyIframe.style.visibility = 'visible';
-
-            // Create the image dynamically
-            var landingPageImage = document.createElement('img');
-            landingPageImage.id = 'landingPageImage';
-            landingPageImage.loading = 'lazy';
-            landingPageImage.src = 'https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK';
-            landingPageImage.alt = 'Landing Page';
-
-            // Append the image to the container
-            document.querySelector('.container').appendChild(landingPageImage);
         });
 
         // Add event listener to redirect to the survey when the image is clicked
-        document.addEventListener('click', function(event) {
-            if (event.target.id === 'landingPageImage') {
-                window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform';
-            }
+        document.getElementById('landingPageImage').addEventListener('click', function() {
+            window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSeNYioyWXiUh3i1t7s8PwR92_wEvKADqUJCRxERVqX6mnreBA/viewform';
         });
     </script>
 
 </body>
 </html>
+```
+
+This modification places the image before the survey in the HTML structure, effectively switching their order on the web page.
