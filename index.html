@@ -15,10 +15,11 @@
         .container {
             display: flex;
             flex-direction: column;
+            align-items: center; /* Center the content horizontally */
         }
 
         img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -26,8 +27,8 @@
         }
 
         iframe {
-            width: 100vw;
-            height: 100vh;
+            width: 640px; /* Adjust width as needed */
+            height: 600px; /* Adjust height as needed */
             border: 0;
             visibility: hidden; /* Hide the survey initially */
         }
@@ -36,13 +37,10 @@
 <body>
 
     <div class="container">
-
         <!-- Scrollable Image with Lazy Loading -->
         <img id="landingPageImage" loading="lazy" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
-
         <!-- Content div for seamless scrolling -->
         <div class="content" id="surveyContainer"></div>
-
     </div>
 
     <script>
