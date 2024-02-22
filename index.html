@@ -15,20 +15,20 @@
         .container {
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center the content horizontally */
         }
 
         img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
             display: block;
             margin: 0 auto;
             cursor: pointer; /* Add cursor pointer for clickable effect */
         }
 
-        #surveyContainer {
-            width: 640px; /* Adjust width as needed */
-            height: 600px; /* Adjust height as needed */
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: 0;
             visibility: hidden; /* Hide the survey initially */
         }
     </style>
@@ -36,10 +36,13 @@
 <body>
 
     <div class="container">
+
         <!-- Scrollable Image with Lazy Loading -->
-        <img id="landingPageImage" loading="lazy" src="https://i.postimg.cc/nFHMmgkm/Landing-Page-8.png" alt="Landing Page">
+        <img id="landingPageImage" loading="lazy" src="https://drive.google.com/uc?id=1NxjoaVHoCpdQd5R5rj_Nuo8q68SItYXK" alt="Landing Page">
+
         <!-- Content div for seamless scrolling -->
-        <div id="surveyContainer"></div>
+        <div class="content" id="surveyContainer"></div>
+
     </div>
 
     <script>
