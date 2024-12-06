@@ -9,14 +9,17 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Main navigation">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Piclist</a>
+          <a class="navbar-brand" href="#">
+            <img src="images/logo.png" alt="Piclist Logo" width="50">
+            Piclist
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
               <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
               <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
@@ -26,25 +29,60 @@
       </nav>
     </header>
     <main>
-      <section class="welcome-section">
-        <h1>Welcome to the future of e-commerce</h1>
-        <p>Piclist is a new e-commerce platform that allows you to post an item across any e-commerce platform simultaneously within the capture of a photo.</p>
-        <button id="toggleFeatures" class="btn btn-primary">Toggle Features</button>
-      </section>
-      <section id="features" class="features-section">
-        <h2>Our Features</h2>
+      <section aria-labelledby="welcome-title" class="welcome-section py-5 text-center">
         <div class="container">
+          <h1 id="welcome-title" class="mb-4">Welcome to the future of e-commerce</h1>
+          <p class="lead">Piclist is a new e-commerce platform that allows you to post an item across any e-commerce platform simultaneously within the capture of a photo.</p>
+          <p class="lead">Leverage image recognition technology to autofill descriptions, manage inventory, and provide price suggestions! Created by a passionate team of college students.</p>
+          <p><a class="btn btn-primary" href="https://piclist.ai" target="_blank" rel="noopener noreferrer">Visit Our Official Website</a></p>
+        </div>
+      </section>
+      <section aria-labelledby="features-title" id="features" class="py-5">
+        <div class="container">
+          <h2 id="features-title" class="text-center mb-5">Our Features</h2>
           <div class="row">
-            <div class="col-md-4">Download the app</div>
-            <div class="col-md-4">Login to your accounts</div>
-            <div class="col-md-4">Capture a photo</div>
+            <article class="col-md-4 text-center mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h3 class="card-title">Download the App</h3>
+                </div>
+              </div>
+            </article>
+            <article class="col-md-4 text-center mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h3 class="card-title">Login to Your E-Commerce Accounts</h3>
+                </div>
+              </div>
+            </article>
+            <article class="col-md-4 text-center mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h3 class="card-title">Capture a Photo of What You’re Selling</h3>
+                </div>
+              </div>
+            </article>
+            <article class="col-md-4 text-center mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h3 class="card-title">Let Piclist Handle the Rest</h3>
+                </div>
+              </div>
+            </article>
+            <article class="col-md-4 text-center mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h3 class="card-title">Rinse and Repeat!</h3>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
     </main>
-    <footer class="text-center">
-      <p>You have made it to the footer that lacks effort haha</p>
+    <footer class="text-center py-4 bg-light">
+      <p class="mb-0">You have made it to the footer that lacks effort haha</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
